@@ -7,6 +7,10 @@ import com.grog.daggerlib.ClassAppA
 import com.grog.daggerlib.ClassAppB
 import com.grog.daggerlib.ClassLibA
 import com.grog.daggerlib.ClassLibB
+import com.grog.daggerlib.di.DaggerLibComponentA
+import com.grog.daggersetup.di.AppModuleA
+import com.grog.daggersetup.di.AppModuleB
+import com.grog.daggersetup.di.DaggerAppComponentA
 import com.grog.daggersetup.di.DaggerAppComponentB
 import javax.inject.Inject
 
@@ -24,7 +28,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        DaggerAppComponentB.builder().build().inject(this)
+        DaggerAppComponentB.builder()
+                .appComponentA(DaggerAppComponentA.builder()
+                        .appModuleA(AppModuleA(applicationContext))
+                        .libComponentA(DaggerLibComponentA.builder().build())
+                        .build())
+                .build().inject(this)
 
         Log.v(TAG , classAppA.result())
         Log.v(TAG , classAppB.result())

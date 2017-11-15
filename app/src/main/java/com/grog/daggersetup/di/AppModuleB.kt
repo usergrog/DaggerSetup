@@ -1,16 +1,15 @@
 package com.grog.daggersetup.di
 
-import android.content.Context
 import com.grog.daggerlib.ClassAppB
+import com.grog.daggerlib.di.LibScreenScope
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 @Module
 open class AppModuleB() {
 
     @Provides
-    @AppSingletonB
+    @LibScreenScope
     open fun provideClassLibB(): ClassAppB {
         return ClassAppB()
     }

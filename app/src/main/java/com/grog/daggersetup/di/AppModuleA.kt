@@ -2,20 +2,21 @@ package com.grog.daggersetup.di
 
 import android.content.Context
 import com.grog.daggerlib.ClassAppA
+import com.grog.daggerlib.di.AppScope
+import com.grog.daggerlib.di.LibScope
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 @Module
 open class AppModuleA(internal var appContext: Context) {
     @Provides
-    @AppSingletonA
+    @AppScope
     open fun provideContext(): Context {
         return appContext
     }
 
     @Provides
-    @AppSingletonA
+    @AppScope
     open fun provideClassLibA(): ClassAppA {
         return ClassAppA()
     }

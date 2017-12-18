@@ -3,10 +3,7 @@ package com.grog.daggersetup
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.grog.daggerlib.ClassAppA
-import com.grog.daggerlib.ClassAppB
-import com.grog.daggerlib.ClassLibA
-import com.grog.daggerlib.ClassLibB
+import com.grog.daggerlib.*
 import com.grog.daggerlib.di.DaggerLibComponentA
 import com.grog.daggersetup.di.AppModuleA
 import com.grog.daggersetup.di.AppModuleB
@@ -20,6 +17,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var classAppA :ClassAppA
     @Inject
     lateinit var classAppB : ClassAppB
+    @Inject
+    lateinit var classAppC : ClassAppC
     @Inject
     lateinit var classLibA : ClassLibA
     @Inject
@@ -39,5 +38,6 @@ class MainActivity : AppCompatActivity() {
         Log.v(TAG , classAppB.result())
         Log.v(TAG , classLibA.result())
         Log.v(TAG , classLibB.result())
+        Log.v(TAG , classAppC.result())
     }
 }

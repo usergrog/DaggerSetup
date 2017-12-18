@@ -17,7 +17,7 @@ open class AppModuleA(internal var appContext: Context) {
 
     @Provides
     @AppScope
-    open fun provideClassLibA(): ClassAppA {
+    open fun provideClassAppA(): ClassAppA {
         return ClassAppA()
     }
 
